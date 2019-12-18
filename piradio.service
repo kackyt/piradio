@@ -1,0 +1,17 @@
+[Unit]
+Description=piradio
+Wants=network-online.target sound.target
+After=syslog.target network.target network-online.target sound.target
+
+[Service]
+Type=simple
+WorkingDirectory=/home/pi/piradio
+ExecStart=/home/pi/piradio/player.sh
+User=pi
+TimeoutStopSec=5
+StandardOutput=null
+RemainAfterExit=yes
+
+[Install]
+WantedBy = multi-user.target network-online.target sound.target
+
