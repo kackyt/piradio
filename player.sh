@@ -16,4 +16,6 @@ index=17 # $(($RANDOM % ${#stations[@]}))
 
 mplayer -playlist ${stations[${index}]} > player_output 2> player_error < /dev/null &
 
+echo $! > /tmp/piradio.pid
+
 exit 0

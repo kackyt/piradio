@@ -4,11 +4,14 @@ Wants=network-online.target sound.target
 After=syslog.target network.target network-online.target sound.target
 
 [Service]
-Type=simple
+Type=forking
 WorkingDirectory=/home/pi/piradio
 ExecStart=/home/pi/piradio/player.sh
+PIDFile=/tmp/piradio.pid
+Restart=on-failure
 User=pi
-TimeoutStopSec=5
+RestartSec=5s
+TimeoutSec=10s
 StandardOutput=null
 RemainAfterExit=yes
 
