@@ -8,12 +8,11 @@ Type=forking
 WorkingDirectory=/home/pi/piradio
 ExecStart=/home/pi/piradio/player.sh
 PIDFile=/tmp/piradio.pid
-Restart=on-failure
+Restart=always
 User=pi
 RestartSec=5s
-TimeoutSec=10s
+TimeoutSec=30s
 StandardOutput=null
-RemainAfterExit=yes
 
 [Install]
 WantedBy = multi-user.target network-online.target sound.target

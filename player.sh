@@ -12,10 +12,12 @@ while read row; do
   stations+=(${column})
 done < stations.csv
 
-index=17 # $(($RANDOM % ${#stations[@]}))
+candidates=(10 14 16 18 23)
+
+ind=$(($RANDOM % ${#candidates[@]}))
+
+index=${candidates[${ind}]}
 
 mplayer -playlist ${stations[${index}]} > player_output 2> player_error < /dev/null &
 
-echo $! > /tmp/piradio.pid
-
-exit 0
+echo "$!" > /tmp/piradio.pid
